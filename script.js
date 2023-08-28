@@ -67,6 +67,7 @@ function renderPosts() {
 // Delete a post
 const deletePost = (index) => {
     data.splice(index, 1);
+   updateLocalStorage();
     renderPosts();
 };
 
