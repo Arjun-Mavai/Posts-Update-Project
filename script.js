@@ -1,4 +1,4 @@
-// Utility function to get an element by its ID
+// Utility function to get an element by its ID 
 let id = (elementId) => document.getElementById(elementId);
 
 // References to DOM elements
