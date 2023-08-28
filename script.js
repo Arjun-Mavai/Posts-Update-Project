@@ -41,9 +41,14 @@ let editIndex = null;
 let acceptData = () => {
     data.push({ text: input.value });
     renderPosts();
-    localStorage.setItem("data", JSON.stringify(data));
+    updateLocalStorage();
+   
     input.value = "";
 };
+
+function updateLocalStorage(){
+    localStorage.setItem("data", JSON.stringify(data));
+}
 
 // Render the posts on the page
 function renderPosts() {
@@ -76,6 +81,7 @@ function startEdit(index) {
 function updatePost() {
     data[editIndex].text = input.value;
     renderPosts();
+     updateLocalStorage();
     editIndex = null;
     submitButton.innerText = "Post"; // Change button text back to "Post"
     input.value = "";
