@@ -1,83 +1,91 @@
-const form = document.getElementById("form");
-const input = document.getElementById("input");
-const msg = document.getElementById("msg");
-const postContainer = document.getElementById("posts");
-let data = JSON.parse(localStorage.getItem("data")) || [];
-let editIndex = null;
- 
+// Utility function to get an element by its ID
+let id = (elementId) => document.getElementById(elementId);
 
+// References to DOM elements
+let form = id("form"),
+    input = id("input"),
+    msg = id("msg"),
+    post = id("posts"),
+    submitButton = id("submitButton");
 
-
-
-form.addEventListener("submit", handleFormSubmit);
-
-function handleFormSubmit(e) {
+// Event listener for form submission
+form.addEventListener("submit", (e) => {
     e.preventDefault();
-    if (input.value) {
+    formValidation();
+});
+
+// Validate the form input
+let formValidation = () => {
+    if (!input.value) {
+        msg.innerHTML = "Please fill the form!";
+        msg.style.color = "red";
+    } else {
+        // Check if we are in edit mode or adding a new post
         if (editIndex !== null) {
             updatePost();
         } else {
-            addNewPost();
+            acceptData();
         }
-        displayPosts();
-        saveToLocalStorage();
-        clearInput();
-        displayMessage("Data posted successfully", "green");
-    } else {
-        displayMessage("Please fill the form!", "red");
+        msg.innerHTML = `Data posted ${input.value} successfully`;
+        msg.style.color = "green";
     }
-}
+};
 
-function displayMessage(message, color) {
-    msg.innerHTML = message;
-    msg.style.color = color;
-}
+// Data array to store posts
+let data = [];
 
-function addNewPost() {
+// Variable to track the post being edited
+let editIndex = null;
+
+// Accept and store the form data
+let acceptData = () => {
     data.push({ text: input.value });
-}
+    renderPosts();
+    localStorage.setItem("data", JSON.stringify(data));
+    input.value = "";
+};
 
-function updatePost() {
-    data[editIndex].text = input.value;
-    editIndex = null;
-    document.getElementById("submitButton").innerText = "Post";
-
-}
-
-function displayPosts() {
-    postContainer.innerHTML = "";
+// Render the posts on the page
+function renderPosts() {
+    post.innerHTML = "";
     data.forEach((item, index) => {
-        postContainer.innerHTML += `
-            <div>
-                <p>${item.text}</p>
-                <span>
-                    <i onclick="deletePost(${index})" class="fa-solid fa-trash"></i>
-                    <i onclick="startEdit(${index})" class="fa-regular fa-pen-to-square"></i>
-                </span>
-            </div>`;
+        post.innerHTML += `<div>
+            <p>${item.text}</p>
+            <span id="options">
+                <i onClick="deletePost(${index})" class="fa-solid fa-trash"></i>
+                <i onClick="startEdit(${index})" class="fa-regular fa-pen-to-square"></i>
+            </span>
+        </div>`;
     });
 }
 
-function deletePost(index) {
+// Delete a post
+const deletePost = (index) => {
     data.splice(index, 1);
-    displayPosts();
-    saveToLocalStorage();
-}
+    renderPosts();
+};
 
+// Start editing a post
 function startEdit(index) {
     editIndex = index;
     input.value = data[index].text;
-    document.getElementById("submitButton").innerText = "Update";
-
+    submitButton.innerText = "Update"; // Change button text to "Update"
 }
 
-function saveToLocalStorage() {
-    localStorage.setItem("data", JSON.stringify(data));
-}
-
-function clearInput() {
+// Update a post
+function updatePost() {
+    data[editIndex].text = input.value;
+    renderPosts();
+    editIndex = null;
+    submitButton.innerText = "Post"; // Change button text back to "Post"
     input.value = "";
 }
 
-// Initial display of posts
-displayPosts();
+// Load stored data from local storage on page load
+(() => {
+    let storedData = localStorage.getItem("data");
+    if (storedData) {
+        data = JSON.parse(storedData);
+        renderPosts();
+    }
+})();
