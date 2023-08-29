@@ -6,7 +6,7 @@ body {
     color: black; /* Making the text color black */
     /* overflow: hidden; */ /* Removed this line to enable scrolling */
     width: auto; /* Auto width to fit the content */
-    max-width: 100%; /* Making sure it doesn't overflow the viewport */
+    max-width: 90%; /* Making sure it doesn't overflow the viewport */
     overflow-x: hidden;
    box-sizing: border-box;
     
@@ -19,7 +19,7 @@ body {
 } */
 
 #bgVideo {
-    position: absolute;   
+    position: fixed;   
     top: 0; right: 0; bottom: 0; left: 0;
     z-index: -1;  /* Behind the content */
     overflow: hidden;
@@ -100,7 +100,7 @@ h1 {
      }
     100% {
         opacity: 1;
-         transform : translateZ(0); 
+         transform : translateZ(10px); 
         
 
      }
@@ -123,6 +123,7 @@ h1 {
     z-index: 2; /* Set z-index to 2, so it's above the video */
     position: relative; /* Relative positioning */
     background-color: rgba(255,255,255,0);
+    padding: 15px;
 }
 
 /* Styling the posts container */
@@ -167,7 +168,11 @@ i {
         box-sizing: border-box;
         flex-wrap: wrap;
         background-color: rgba(0,0,0,0);
+        padding: 15px;
     }
+
+    
+    
 }
 
 /* Styling the submit button */
@@ -194,6 +199,8 @@ textarea {
     font-family: 'Trebuchet MS', sans-serif; /* Choosing a readable font */
     font-size: larger; /* Making the text a bit larger */
     font-weight: 600; /* Making the text bold */
+    padding: 5px;
+    width: 90%;
 }
 
 /* Styling the left and right sections of the container */
@@ -201,24 +208,33 @@ textarea {
     padding: 20px; /* Adding some padding */
     /* background-color: #0e182a; Choosing a dark background color */
     border-radius: 5px; /* Rounding the corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.2); /*Adding a subtle shadow
     background-color: rgba(14, 24, 42, 0.8); /* Semi-transparent background */
     z-index: 3; /* Set z-index to 3, so it's above the video */
     position: relative; /* Relative positioning */
+    border : 2px solid antiquewhite;
+    position:relative;
+     
 }
 
 /* Styling the heading of the posts section */
 #post-heading {
-    border: 2px solid antiquewhite; /* Adding a border */
+    border: 4px solid antiquewhite; /* Adding a border */
     border-radius: 5px; /* Rounding the corners */
     padding: 15px; /* Adding some padding */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
     color: white; /* Making the text white */
+    display: inline-block;
+    border-color: black;
+
+    
+    
 }
 
 /* Styling the text of the posts */
 #posts {
     color: greenyellow; /* Making the text green-yellow */
+    padding: 10px;
 }
 
 #form-label {
