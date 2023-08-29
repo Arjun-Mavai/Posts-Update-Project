@@ -7,16 +7,20 @@ body {
     /* overflow: hidden; */ /* Removed this line to enable scrolling */
     width: auto; /* Auto width to fit the content */
     max-width: 100%; /* Making sure it doesn't overflow the viewport */
+    overflow-x: hidden;
+   box-sizing: border-box;
 }
 
 /* Styling the main heading */
 h1 {
     color: black; /* Making the main heading black */
+    
 }
 
 /* Styling the container that holds the form and posts */
 .container {
     display: flex; /* Using flexbox for layout */
+    flex-wrap: wrap;
     gap: 50px; /* Adding space between form and posts */
 }
 
@@ -58,6 +62,9 @@ i {
         align-items: stretch; /* Stretching items to fill the width */
         width: auto;
         max-width: 100%;
+        overflow-x: hidden;
+        box-sizing: border-box;
+        flex-wrap: wrap;
     }
 }
 
