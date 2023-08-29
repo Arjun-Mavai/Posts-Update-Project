@@ -2,53 +2,127 @@
 body {
     font-family: 'Lucida Sans', sans-serif; /* Choosing a readable font */
     margin: 0 15px; /* Removing default margin and adding a little space on the sides */
-    background-color: blanchedalmond; /* Setting a light background color */
+     /* Setting a light background color */
     color: black; /* Making the text color black */
     /* overflow: hidden; */ /* Removed this line to enable scrolling */
     width: auto; /* Auto width to fit the content */
     max-width: 100%; /* Making sure it doesn't overflow the viewport */
     overflow-x: hidden;
    box-sizing: border-box;
+    
+    
+    
 }
 
+/* html{
+    background-image: url('natural.jpg');
+} */
+
+#bgVideo {
+    position: absolute;   
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;  /* Behind the content */
+    overflow: hidden;
+    object-fit: cover; /* Cover the entire screen */
+    width: 100%;
+    height: 100%;
+  }
 
 .banner{
-
+   
     position: relative;
-    height: 100%;
-    height:200px;
+    height: 100vh;
+     
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-align-items: stretch;
-
+    align-items: stretch;
+    z-index: 1; /* Set z-index to 1 */
+    overflow: hidden;
 
 
 }
 
 .banner video{
     position: absolute;
+    top: 0;
+   left: 0;
+   
      
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
+    z-index: 0; /* Set z-index to 0, so it's behind other content */
 
 
+}
+
+sup {
+    font-size: 0.3em;
+    color:white;
+    letter-spacing: 2px;
+}
+#apps{
+    color:black
+}
+
+#media{
+color:red
+}
+#name{
+    color:blue
+}
+
+.heading{
+    perspective: 1000px;
 }
 
 /* Styling the main heading */
 h1 {
-    color: black; /* Making the main heading black */
     
+    font-size: 50px; /* Adjust the font size as needed */
+    color:gold; /* Making the text color white */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 4px; /* Add letter spacing for a more spaced-out look */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+    /* animation: shadowPulse 2s ease-in-out; Add a pulsating animation */
+    animation: slideIn 5s forwards;
+    transform: translateZ(-300px);
 }
+
+@keyframes slideIn {
+    0% {
+        opacity: 0; 
+        transform: translateZ(-600px); 
+        
+
+     }
+    100% {
+        opacity: 1;
+         transform : translateZ(0); 
+        
+
+     }
+}
+
+
+ 
+
 
 /* Styling the container that holds the form and posts */
 .container {
-    margin-top: 50px;
+     margin-top: 0;
     display: flex; /* Using flexbox for layout */
     flex-wrap: wrap;
     gap: 50px; /* Adding space between form and posts */
+
+
+    margin-top: 50px;
+    /* ... existing styles ... */
+    z-index: 2; /* Set z-index to 2, so it's above the video */
+    position: relative; /* Relative positioning */
+    background-color: rgba(255,255,255,0);
 }
 
 /* Styling the posts container */
@@ -92,6 +166,7 @@ i {
         overflow-x: hidden;
         box-sizing: border-box;
         flex-wrap: wrap;
+        background-color: rgba(0,0,0,0);
     }
 }
 
@@ -103,11 +178,13 @@ button {
     border-radius: 5px; /* Rounding the corners */
     padding: 10px 20px; /* Adding some padding */
     transition: background-color 0.3s; /* Smooth background color change */
+   
 }
 
 /* Adding a hover effect to the submit button */
 button:hover {
     background-color: #0056b3; /* Darker blue when hovered */
+    transform: scale(1.5)
 }
 
 /* Styling the textarea where you write your post */
@@ -122,9 +199,12 @@ textarea {
 /* Styling the left and right sections of the container */
 .left, .right {
     padding: 20px; /* Adding some padding */
-    background-color: #0e182a; /* Choosing a dark background color */
+    /* background-color: #0e182a; Choosing a dark background color */
     border-radius: 5px; /* Rounding the corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    background-color: rgba(14, 24, 42, 0.8); /* Semi-transparent background */
+    z-index: 3; /* Set z-index to 3, so it's above the video */
+    position: relative; /* Relative positioning */
 }
 
 /* Styling the heading of the posts section */
@@ -139,4 +219,8 @@ textarea {
 /* Styling the text of the posts */
 #posts {
     color: greenyellow; /* Making the text green-yellow */
+}
+
+#form-label {
+    color: white;
 }
