@@ -1,70 +1,108 @@
-body{
-    font-family: sans-serif;
-    margin: 0 15px ;
-
+/* Setting up the general look of the page */
+body {
+    font-family: 'Lucida Sans', sans-serif; /* Choosing a readable font */
+    margin: 0 15px; /* Removing default margin and adding a little space on the sides */
+    background-color: blanchedalmond; /* Setting a light background color */
+    color: black; /* Making the text color black */
+    /* overflow: hidden; */ /* Removed this line to enable scrolling */
+    width: auto; /* Auto width to fit the content */
+    max-width: 100%; /* Making sure it doesn't overflow the viewport */
 }
 
+/* Styling the main heading */
+h1 {
+    color: black; /* Making the main heading black */
+}
+
+/* Styling the container that holds the form and posts */
 .container {
-    display : flex;
-    gap : 50px;
+    display: flex; /* Using flexbox for layout */
+    gap: 50px; /* Adding space between form and posts */
 }
 
-#posts{
-    width : 400px;
+/* Styling the posts container */
+#posts {
+    width: max-content; /* Width based on content */
 }
 
-#posts div{
-    display : flex;
-    align-items: center;
-    justify-content: space-between;
-     
+/* Styling each individual post */
+#posts div {
+    display: flex; /* Using flexbox for layout */
+    align-items: center; /* Vertically centering the content */
+    justify-content: space-between; /* Adding space between text and icons */
+    gap:70px;
 }
 
-#options {
-    display: flex;
-    gap: 15px;
-}
-
- i{
-    cursor: pointer;
- }
- 
-
-@media screen and (max-width : 768px){
+/* Styling the icons (edit and delete) */
+i {
+    cursor: pointer; /* Making it obvious you can interact with the icons */
+    margin-left: 15px; /* Adding some space to the left of each icon */
     
+}
+
+/* Styling the delete icon specifically */
+#deleteIcon {
+    color: red; /* Making the delete icon red */
+    
+}
+
+/* Styling the edit icon specifically */
+#options #editIcon {
+    color: bisque; /* Making the edit icon bisque */
+}
+
+/* Making the layout responsive for smaller screens */
+@media screen and (max-width: 768px) {
     .container {
-        flex-direction: column;
-        align-items: stretch;
-        height : auto;
+        flex-direction: column; /* Stacking form and posts vertically */
+        align-items: stretch; /* Stretching items to fill the width */
+        width: auto;
+        max-width: 100%;
     }
 }
 
-button{
-    color:white;
-    border:none;
-    background-color: blue;
-    border-radius: 5px;
-    padding:10px 20px;
-    transition: background-color 0.3s;
+/* Styling the submit button */
+button {
+    color: white; /* Text color */
+    background-color: blue; /* Background color */
+    border: none; /* Removing the default border */
+    border-radius: 5px; /* Rounding the corners */
+    padding: 10px 20px; /* Adding some padding */
+    transition: background-color 0.3s; /* Smooth background color change */
 }
 
+/* Adding a hover effect to the submit button */
 button:hover {
-    background-color: #0056b3;
-  }
+    background-color: #0056b3; /* Darker blue when hovered */
+}
 
-  textarea{
-    resize: vertical;
-  }
+/* Styling the textarea where you write your post */
+textarea {
+    resize: vertical; /* Allowing vertical resizing */
+    border-radius: 5px; /* Rounding the corners */
+    font-family: 'Trebuchet MS', sans-serif; /* Choosing a readable font */
+    font-size: larger; /* Making the text a bit larger */
+    font-weight: 600; /* Making the text bold */
+}
 
-  .left, .right {
-  padding:20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    
-  }
+/* Styling the left and right sections of the container */
+.left, .right {
+    padding: 20px; /* Adding some padding */
+    background-color: #0e182a; /* Choosing a dark background color */
+    border-radius: 5px; /* Rounding the corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+}
 
-  border: 1px solid #ddd;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Styling the heading of the posts section */
+#post-heading {
+    border: 2px solid antiquewhite; /* Adding a border */
+    border-radius: 5px; /* Rounding the corners */
+    padding: 15px; /* Adding some padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+    color: white; /* Making the text white */
+}
+
+/* Styling the text of the posts */
+#posts {
+    color: greenyellow; /* Making the text green-yellow */
+}

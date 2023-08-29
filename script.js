@@ -12,6 +12,7 @@ let form = id("form"),
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     formValidation();
+    console.log("form submitted")
 });
 
 // Validate the form input
@@ -27,7 +28,7 @@ let formValidation = () => {
             acceptData();
         }
         msg.innerHTML = `Data posted ${input.value} successfully`;
-        msg.style.color = "green";
+        msg.style.color = "greenyellow";
     }
 };
 
@@ -57,8 +58,8 @@ function renderPosts() {
         post.innerHTML += `<div>
             <p>${item.text}</p>
             <span id="options">
-                <i onClick="deletePost(${index})" class="fa-solid fa-trash"></i>
-                <i onClick="startEdit(${index})" class="fa-regular fa-pen-to-square"></i>
+                <i onClick="deletePost(${index})"  id="deleteIcon" class="fa-solid fa-trash"></i>
+                <i onClick="startEdit(${index})" id="editIcon" class="fa-regular fa-pen-to-square"></i>
             </span>
         </div>`;
     });
