@@ -189,3 +189,5 @@ Comparing the two approaches:
 - In the React version, we manage state using hooks (`useState`) and use JSX to define the UI. React handles the rendering and updating of the UI based on state changes.
 
 The React version provides a more declarative and structured way to manage state and UI interactions, making it easier to understand and maintain complex UIs.
+
+![Alt text](image.png)
