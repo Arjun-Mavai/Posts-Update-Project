@@ -11,7 +11,7 @@ body {
    box-sizing: border-box;
     
    background: linear-gradient(to bottom, #fff, #fff 100vh, rgba(65, 115, 177, 0.85) 100vh); /* Apply gradient below image */
-   overflow: hidden; /* Hide content behind the image */
+   overflow-y: scroll; /* Hide content behind the image */
 
     
 }
@@ -86,9 +86,9 @@ img{
     height: 150px;
     border-radius: 15px;
     top: 0;
-    left: 50%;
+    left: 0;
     /* right: 100px; */
-    position: fixed;
+    
     transform: translateX(-50%);
     animation: fadeIn 4s 4s linear forwards;
 
@@ -106,34 +106,35 @@ img{
 /* Styling the main heading */
 h1 {
     
-    font-size: 30px; /* Adjust the font size as needed */
+    font-size: 50px; /* Adjust the font size as needed */
     color:gold; /* Making the text color white */
     text-transform: uppercase; /* Uppercase text */
     letter-spacing: 4px; /* Add letter spacing for a more spaced-out look */
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
     /* animation: shadowPulse 2s ease-in-out; Add a pulsating animation */
-    animation: slideIn 4s ease-out infinite;
+    animation: slideIn 4s ease-out ;
     transform: translateZ(-300px);
     position: relative;
+    font-weight: ;
 }
 
 @keyframes slideIn {
     0% {
         opacity: 0; 
-        transform: translateZ(-6000px); 
+        transform: translateZ(600px); 
         /* opacity 0 means visibility: hidden; and transparent full */
         
 
      }
 
-     50%{
+     /* 50%{
         opacity: 1;
-        transform : translateZ(-6000px)
-     }
+        transform : translateZ(-600px)
+     } */
  
     100% {
         opacity: 1;
-         transform : translateZ(1000px); 
+         transform : translateZ(0); 
         
 
      }
@@ -155,8 +156,9 @@ h1 {
     /* ... existing styles ... */
     z-index: 2; /* Set z-index to 2, so it's above the video */
     position: relative; /* Relative positioning */
-    background-color: rgba(255,255,255,0);
-    padding: 15px;
+    /* background-color: rgba(255,255,255,0); */
+    padding: 25px;
+    /* padding-left: 10px; */
 }
 
 /* Styling the posts container */
@@ -200,7 +202,7 @@ i {
         overflow-x: hidden;
         box-sizing: border-box;
         flex-wrap: wrap;
-        background-color: rgba(0,0,0,0);
+        /* background-color: rgba(0,0,0,0); */
         padding: 15px;
     }
 
@@ -233,7 +235,7 @@ textarea {
     font-size: larger; /* Making the text a bit larger */
     font-weight: 600; /* Making the text bold */
     padding: 5px;
-    width: 90%;
+    width: 100%
 }
 
 /* Styling the left and right sections of the container */
@@ -267,21 +269,46 @@ textarea {
 
 /* Styling the text of the posts */
 #posts {
-    color:white; /* Making the text green-yellow */
+    color:whitesmoke; /* Making the text green-yellow */
     padding: 10px;
    overflow-y: scroll;
    overflow-x: scroll;
    height: 200px;
-   width: 200px;
+   width: fit-content;
    font-size: 24px;
    font-family: sans-serif;
    font-weight: 600;
    font: bold;
-   background: #000300;
+   /* background: #000300; */
+   box-shadow: 0 21px 40px 6px rgba(67, 50, 0, 0.2);
     border-radius: 12px;
     z-index: -10;
+    outline: none;
+    background-color: none;
+    transition: background-color .3s;
+}
+
+#posts:hover{
+    background-color: #0056b3;
 }
 
 #form-label {
     color: white;
 }
+
+/* Hide the scrollbar by default */
+::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  
+  /* Show the scrollbar when hovered */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.2); /* Adjust the color as needed */
+  }
+  
+  /* Show the scrollbar track when hovered */
+  ::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Adjust the color as needed */
+  }
+  
